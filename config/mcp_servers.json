@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"],
+      "transport": "stdio"
+    },
+    "chrome-devtools-headless": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest", "--headless"],
+      "transport": "stdio"
+    },
+    "chrome-devtools-slim": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest", "--slim", "--headless"],
+      "transport": "stdio"
+    },
+    "chrome-devtools-remote": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest", "--browserUrl", "http://localhost:9222"],
+      "transport": "stdio"
+    }
+  }
+}
