@@ -1,4 +1,4 @@
-# Chromancer — Kapsamli Rehber
+# Deep Browser Agent — Kapsamli Rehber
 
 > Chrome DevTools MCP + LangGraph DeepAgent ile browser otomasyonu.
 > Bu rehber gercek testlere dayanmaktadir (Hacker News, Google, Skyscanner, Wikipedia, GitHub, httpbin).
@@ -121,10 +121,10 @@ OPENAI_API_KEY=sk-...
 
 ### CLI ile provider secimi
 ```bash
-chromancer --model anthropic:claude-sonnet-4-20250514
-chromancer --model openrouter:deepseek/deepseek-chat-v3
-chromancer --model ollama:llama3.3
-chromancer --providers  # mevcut preset'leri listele
+deep-browser-agent --model anthropic:claude-sonnet-4-20250514
+deep-browser-agent --model openrouter:deepseek/deepseek-chat-v3
+deep-browser-agent --model ollama:llama3.3
+deep-browser-agent --providers  # mevcut preset'leri listele
 ```
 
 ---
@@ -134,17 +134,17 @@ chromancer --providers  # mevcut preset'leri listele
 ### Interaktif CLI
 
 ```bash
-chromancer                                       # normal mod
-chromancer --headless                            # headless
-chromancer --model ollama:llama3.3               # lokal model
-chromancer --browser-url http://localhost:9222   # mevcut Chrome'a baglan
+deep-browser-agent                                       # normal mod
+deep-browser-agent --headless                            # headless
+deep-browser-agent --model ollama:llama3.3               # lokal model
+deep-browser-agent --browser-url http://localhost:9222   # mevcut Chrome'a baglan
 ```
 
 ### Python API
 
 ```python
 import asyncio
-from chromancer import BrowserAgentSession, AgentConfig
+from deep_browser_agent import BrowserAgentSession, AgentConfig
 
 async def main():
     config = AgentConfig(model="anthropic:claude-sonnet-4-20250514")
@@ -284,7 +284,7 @@ DOGRU:  evaluate_script(function="() => JSON.stringify({title: document.title})"
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
 
    # MCP'yi bagla
-   chromancer --browser-url http://localhost:9222
+   deep-browser-agent --browser-url http://localhost:9222
    ```
 3. `--isolated` kaldir (kalici cookie/session icin)
 4. Proxy kullan: `--proxyServer socks5://proxy:1080`
@@ -355,7 +355,7 @@ chrome-mcp/
 ├── GUIDE.md                              # Bu rehber
 ├── config/
 │   └── mcp_servers.json                  # MCP sunucu konfigurasyonlari
-├── src/chromancer/
+├── src/deep_browser_agent/
 │   ├── __init__.py                       # Public API
 │   ├── config.py                         # AgentConfig — tum ayarlar
 │   ├── providers.py                      # Multi-provider LLM desteği
@@ -377,27 +377,27 @@ chrome-mcp/
 
 ### Tarif 1: Basit sayfa okuma
 ```bash
-chromancer --headless
+deep-browser-agent --headless
 > url https://news.ycombinator.com
 > Ilk 5 haberi listele
 ```
 
 ### Tarif 2: Form doldurma
 ```bash
-chromancer
+deep-browser-agent
 > httpbin.org/forms/post adresine git ve formu doldur: isim=Ali, tel=555-0000
 ```
 
 ### Tarif 3: Lokal model ile
 ```bash
 ollama pull llama3.3
-chromancer --model ollama:llama3.3
+deep-browser-agent --model ollama:llama3.3
 ```
 
 ### Tarif 4: OpenRouter ile ucuz model
 ```bash
 export OPENROUTER_API_KEY=sk-or-...
-chromancer --model openrouter:deepseek/deepseek-chat-v3
+deep-browser-agent --model openrouter:deepseek/deepseek-chat-v3
 ```
 
 ### Tarif 5: Mevcut Chrome oturumuna baglanma
@@ -406,5 +406,5 @@ chromancer --model openrouter:deepseek/deepseek-chat-v3
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
 
 # Terminal 2: Agent'i bagla
-chromancer --browser-url http://localhost:9222
+deep-browser-agent --browser-url http://localhost:9222
 ```

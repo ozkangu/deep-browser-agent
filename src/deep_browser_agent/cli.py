@@ -1,4 +1,4 @@
-"""Interactive CLI for Chromancer."""
+"""Interactive CLI for Deep Browser Agent."""
 
 from __future__ import annotations
 
@@ -10,9 +10,9 @@ from rich.markdown import Markdown
 from rich.panel import Panel
 from rich.table import Table
 
-from chromancer.agent import BrowserAgentSession
-from chromancer.config import AgentConfig
-from chromancer.providers import PROVIDER_PRESETS
+from deep_browser_agent.agent import BrowserAgentSession
+from deep_browser_agent.config import AgentConfig
+from deep_browser_agent.providers import PROVIDER_PRESETS
 
 console = Console()
 
@@ -21,7 +21,7 @@ async def interactive_loop(config: AgentConfig):
     """Run an interactive chat loop with the browser agent."""
     console.print(
         Panel(
-            "[bold]Chromancer[/bold]\n"
+            "[bold]Deep Browser Agent[/bold]\n"
             "Browser automation via DeepAgent + Chrome DevTools MCP\n\n"
             "Commands:\n"
             "  [cyan]quit[/cyan] / [cyan]exit[/cyan]   — End session\n"
@@ -100,7 +100,7 @@ def main():
 
     if "--help" in args or "-h" in args:
         console.print(
-            "Usage: chromancer [options]\n\n"
+            "Usage: deep-browser-agent [options]\n\n"
             "Options:\n"
             "  --model <provider:model>  LLM to use (e.g., anthropic:claude-sonnet-4-20250514)\n"
             "  --headless               Run Chrome in headless mode\n"

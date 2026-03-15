@@ -2,8 +2,8 @@
 
 import asyncio
 
-from chromancer.agent import BrowserAgentSession
-from chromancer.config import AgentConfig
+from deep_browser_agent.agent import BrowserAgentSession
+from deep_browser_agent.config import AgentConfig
 
 
 async def main():
