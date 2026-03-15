@@ -16,6 +16,9 @@ dependencies = [
     # Default LLM providers — covers most use cases out of the box
     "langchain-anthropic>=0.3.0",
     "langchain-openai>=0.3.0",
+    # HTTP server
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
 ]
 
 [project.optional-dependencies]
@@ -40,6 +43,7 @@ dev = [
 
 [project.scripts]
 deep-browser-agent = "deep_browser_agent.cli:main"
+deep-browser-agent-server = "deep_browser_agent.server:main"
 
 [build-system]
 requires = ["hatchling"]
