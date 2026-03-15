@@ -11,8 +11,6 @@ to the target URL, and executes the agent's actions.
 
 from __future__ import annotations
 
-import asyncio
-import base64
 from contextlib import asynccontextmanager
 from typing import Any
 

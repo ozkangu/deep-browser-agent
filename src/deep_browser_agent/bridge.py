@@ -323,4 +323,4 @@ class DeepBrowserBridge {
 // console.log(data.actions_taken);  // What MCP tools were called
 // console.log(data.screenshot);     // Base64 PNG if agent took a screenshot
 // await agent.close();              // Clean up when done
-""";
+"""

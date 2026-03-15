@@ -12,7 +12,7 @@ from typing import Any
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from deep_browser_agent.config import AgentConfig
-from deep_browser_agent.providers import ProviderConfig, create_model, get_provider_from_string
+from deep_browser_agent.providers import create_model, get_provider_from_string
 from deep_browser_agent.skills import get_browser_skills
 
 # ---------------------------------------------------------------------------
