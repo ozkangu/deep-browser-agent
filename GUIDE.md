@@ -36,27 +36,31 @@ python3 --version
 ls /Applications/Google\ Chrome.app  # macOS
 ```
 
-### Proje Kurulumu
+### Proje Kurulumu (uv)
 
 ```bash
-cd ~/chrome-mcp
+git clone https://github.com/ozkangu/deep-browser-agent.git
+cd deep-browser-agent
 
-# Virtual environment olustur
-python3 -m venv .venv
-source .venv/bin/activate
-
-# Temel kurulum + Anthropic
-pip install -e ".[anthropic]"
+# uv ile kurulum (onerilen)
+uv sync --extra anthropic
 
 # Veya tum provider'larla
-pip install -e ".[all-providers]"
+uv sync --extra all-providers
 
 # DeepAgent ile (opsiyonel)
-pip install -e ".[deep,anthropic]"
+uv sync --extra deep --extra anthropic
 
 # .env dosyasini ayarla
 cp .env.example .env
 # Icine API key'ini yaz
+```
+
+### pip ile Kurulum (alternatif)
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[anthropic]"
 ```
 
 ### chrome-devtools-mcp Test

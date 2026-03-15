@@ -2,6 +2,8 @@
 name = "deep-browser-agent"
 version = "0.2.0"
 description = "Browser automation agent: LangGraph DeepAgent + Chrome DevTools MCP"
+readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.11"
 dependencies = [
     "langchain>=0.3.0",
@@ -19,8 +21,8 @@ anthropic = ["langchain-anthropic>=0.3.0"]
 openai = ["langchain-openai>=0.3.0"]
 google = ["langchain-google-genai>=2.0.0"]
 ollama = ["langchain-ollama>=0.3.0"]
-openrouter = ["langchain-openai>=0.3.0"]    # OpenRouter uses OpenAI-compatible API
-azure = ["langchain-openai>=0.3.0"]          # Azure uses langchain-openai
+openrouter = ["langchain-openai>=0.3.0"]
+azure = ["langchain-openai>=0.3.0"]
 
 # All providers
 all-providers = [
@@ -32,7 +34,8 @@ all-providers = [
 
 # DeepAgent support
 deep = ["deepagents>=0.1.0"]
-deepmcp = ["deepmcpagent[deep]>=0.5.0"]
+# NOTE: deepmcpagent is incompatible with deepagents (langgraph version conflict).
+# Install separately: pip install "deepmcpagent[deep]" in a dedicated venv.
 
 dev = [
     "pytest>=8.0",
@@ -44,12 +47,15 @@ dev = [
 deep-browser-agent = "deep_browser_agent.cli:main"
 
 [build-system]
-requires = ["setuptools>=75.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/deep_browser_agent"]
 
 [tool.ruff]
 target-version = "py311"
 line-length = 100
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
