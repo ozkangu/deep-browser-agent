@@ -57,4 +57,6 @@ class TestBrowserAgentSessionInit:
 
     def test_agent_property_returns_agent(self):
         session = BrowserAgentSession()
-        assert session.agent is None  # before __aenter__
+        sentinel_agent = object()
+        session._agent = sentinel_agent
+        assert session.agent is sentinel_agent
