@@ -42,14 +42,16 @@ ls /Applications/Google\ Chrome.app  # macOS
 git clone https://github.com/ozkangu/deep-browser-agent.git
 cd deep-browser-agent
 
-# uv ile kurulum (onerilen)
-uv sync --extra anthropic
+# uv ile kurulum (Anthropic + OpenAI varsayilan olarak gelir)
+uv sync
 
-# Veya tum provider'larla
-uv sync --extra all-providers
+# Ek provider'lar icin
+uv sync --extra google         # Google Gemini
+uv sync --extra ollama         # Ollama (lokal)
+uv sync --extra all-providers  # hepsi
 
 # DeepAgent ile (opsiyonel)
-uv sync --extra deep --extra anthropic
+uv sync --extra deep
 
 # .env dosyasini ayarla
 cp .env.example .env
@@ -60,7 +62,7 @@ cp .env.example .env
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[anthropic]"
+pip install -e .
 ```
 
 ### chrome-devtools-mcp Test

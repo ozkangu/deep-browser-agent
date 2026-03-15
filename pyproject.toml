@@ -13,29 +13,24 @@ dependencies = [
     "mcp>=1.0.0",
     "python-dotenv>=1.0.0",
     "rich>=13.0.0",
+    # Default LLM providers — covers most use cases out of the box
+    "langchain-anthropic>=0.3.0",
+    "langchain-openai>=0.3.0",
 ]
 
 [project.optional-dependencies]
-# LLM Providers — install what you need
-anthropic = ["langchain-anthropic>=0.3.0"]
-openai = ["langchain-openai>=0.3.0"]
+# Additional LLM providers
 google = ["langchain-google-genai>=2.0.0"]
 ollama = ["langchain-ollama>=0.3.0"]
-openrouter = ["langchain-openai>=0.3.0"]
-azure = ["langchain-openai>=0.3.0"]
 
-# All providers
+# All providers (adds Google + Ollama on top of defaults)
 all-providers = [
-    "langchain-anthropic>=0.3.0",
-    "langchain-openai>=0.3.0",
     "langchain-google-genai>=2.0.0",
     "langchain-ollama>=0.3.0",
 ]
 
 # DeepAgent support
 deep = ["deepagents>=0.1.0"]
-# NOTE: deepmcpagent is incompatible with deepagents (langgraph version conflict).
-# Install separately: pip install "deepmcpagent[deep]" in a dedicated venv.
 
 dev = [
     "pytest>=8.0",

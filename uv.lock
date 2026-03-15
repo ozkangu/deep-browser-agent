@@ -299,8 +299,10 @@ version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "langchain" },
+    { name = "langchain-anthropic" },
     { name = "langchain-core" },
     { name = "langchain-mcp-adapters" },
+    { name = "langchain-openai" },
     { name = "langgraph" },
     { name = "mcp" },
     { name = "python-dotenv" },
@@ -309,16 +311,8 @@ dependencies = [
 
 [package.optional-dependencies]
 all-providers = [
-    { name = "langchain-anthropic" },
     { name = "langchain-google-genai" },
     { name = "langchain-ollama" },
-    { name = "langchain-openai" },
-]
-anthropic = [
-    { name = "langchain-anthropic" },
-]
-azure = [
-    { name = "langchain-openai" },
 ]
 deep = [
     { name = "deepagents" },
@@ -334,29 +328,19 @@ google = [
 ollama = [
     { name = "langchain-ollama" },
 ]
-openai = [
-    { name = "langchain-openai" },
-]
-openrouter = [
-    { name = "langchain-openai" },
-]
 
 [package.metadata]
 requires-dist = [
     { name = "deepagents", marker = "extra == 'deep'", specifier = ">=0.1.0" },
     { name = "langchain", specifier = ">=0.3.0" },
-    { name = "langchain-anthropic", marker = "extra == 'all-providers'", specifier = ">=0.3.0" },
-    { name = "langchain-anthropic", marker = "extra == 'anthropic'", specifier = ">=0.3.0" },
+    { name = "langchain-anthropic", specifier = ">=0.3.0" },
     { name = "langchain-core", specifier = ">=0.3.0" },
     { name = "langchain-google-genai", marker = "extra == 'all-providers'", specifier = ">=2.0.0" },
     { name = "langchain-google-genai", marker = "extra == 'google'", specifier = ">=2.0.0" },
     { name = "langchain-mcp-adapters", specifier = ">=0.1.0" },
     { name = "langchain-ollama", marker = "extra == 'all-providers'", specifier = ">=0.3.0" },
     { name = "langchain-ollama", marker = "extra == 'ollama'", specifier = ">=0.3.0" },
-    { name = "langchain-openai", marker = "extra == 'all-providers'", specifier = ">=0.3.0" },
-    { name = "langchain-openai", marker = "extra == 'azure'", specifier = ">=0.3.0" },
-    { name = "langchain-openai", marker = "extra == 'openai'", specifier = ">=0.3.0" },
-    { name = "langchain-openai", marker = "extra == 'openrouter'", specifier = ">=0.3.0" },
+    { name = "langchain-openai", specifier = ">=0.3.0" },
     { name = "langgraph", specifier = ">=0.4.0" },
     { name = "mcp", specifier = ">=1.0.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
@@ -365,7 +349,7 @@ requires-dist = [
     { name = "rich", specifier = ">=13.0.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.8.0" },
 ]
-provides-extras = ["anthropic", "openai", "google", "ollama", "openrouter", "azure", "all-providers", "deep", "dev"]
+provides-extras = ["google", "ollama", "all-providers", "deep", "dev"]
 
 [[package]]
 name = "deepagents"

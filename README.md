@@ -27,10 +27,10 @@ git clone https://github.com/ozkangu/deep-browser-agent.git
 cd deep-browser-agent
 
 # Install with uv (recommended)
-uv sync --extra anthropic
+uv sync
 
 # Or with pip
-pip install -e ".[anthropic]"
+pip install -e .
 
 # Configure
 cp .env.example .env
@@ -88,9 +88,11 @@ Use any LLM provider via `--model provider:model` or the `AGENT_MODEL` env var:
 | **Azure** | `azure:gpt-4o` | `AZURE_OPENAI_API_KEY` + `AZURE_OPENAI_ENDPOINT` |
 | **Google** | `google:gemini-2.5-pro` | `GOOGLE_API_KEY` |
 
+Anthropic and OpenAI come installed by default. For additional providers:
+
 ```bash
-# Install the provider you need
-uv sync --extra anthropic    # or openai, google, ollama
+uv sync --extra google         # Google Gemini
+uv sync --extra ollama         # Ollama (local)
 uv sync --extra all-providers  # everything
 
 # List presets
