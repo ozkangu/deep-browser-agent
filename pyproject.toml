@@ -44,6 +44,7 @@ dev = [
 [project.scripts]
 deep-browser-agent = "deep_browser_agent.cli:main"
 deep-browser-agent-server = "deep_browser_agent.server:main"
+deep-browser-agent-bridge = "deep_browser_agent.bridge:main"
 
 [build-system]
 requires = ["hatchling"]
